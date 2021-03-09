@@ -11,7 +11,7 @@
     
     
     
-    <script type="application/ld+json">{"@context":"http://schema.org","@type":"Website","@id":"https://yuanjie123.github.io/shaoshuai.github.io","author":{"@type":"Person","name":"Tom Yuan","sameAs":["https://github.com/yuanjie123","https://twitter.com/","https://facebook.com/","https://plus.google.com/","https://www.linkedin.com/profile/","mailto"]},"name":"简单的个人博客","description":"一个热爱探索的程序员","url":"https://yuanjie123.github.io/shaoshuai.github.io"}</script>
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"Website","@id":"https://yuanjie123.github.io/shaoshuai.github.io","author":{"@type":"Person","name":"Tom Yuan","sameAs":["https://github.com/yuanjie123","https://twitter.com/","https://facebook.com/","https://plus.google.com/","https://www.linkedin.com/profile/","mailto"],"image":"/picture.jpg"},"name":"简单的个人博客","description":"一个热爱探索的程序员","url":"https://yuanjie123.github.io/shaoshuai.github.io"}</script>
     <meta name="description" content="发">
 <meta property="og:type" content="blog">
 <meta property="og:title" content="上传测试">
@@ -27,6 +27,8 @@
     
         
     
+    
+        <meta property="og:image" content="https://yuanjie123.github.io/shaoshuai.github.io/assets/images/picture.jpg"/>
     
     
     
@@ -51,6 +53,10 @@
 
 
     
+        
+            
+        
+    
 
 <header id="header" data-behavior="1">
     <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
@@ -72,6 +78,8 @@
             >
         
         
+            <img class="header-picture" src="/shaoshuai.github.io/assets/images/picture.jpg" alt="Author&#39;s picture"/>
+        
         </a>
     
 </header>
@@ -79,8 +87,26 @@
             <!-- Define author's picture -->
 
 
+
+        
+    
+
 <nav id="sidebar" data-behavior="1">
     <div class="sidebar-container">
+        
+            <div class="sidebar-profile">
+                <a
+                    href="/shaoshuai.github.io/#about"
+                    aria-label="Read more about the author"
+                >
+                    <img class="sidebar-profile-picture" src="/shaoshuai.github.io/assets/images/picture.jpg" alt="Author&#39;s picture"/>
+                </a>
+                <h4 class="sidebar-profile-name">Tom Yuan</h4>
+                
+                    <h5 class="sidebar-profile-bio"><p>author.bio</p>
+</h5>
+                
+            </div>
         
         
             <ul class="sidebar-buttons">
@@ -326,6 +352,10 @@
             
 
 
+            <!-- 添加的部分 -->
+            <!-- copyright -->
+            
+            <!-- copyright -->
         </div>
     </div>
     <div id="post-footer" class="post-footer main-content-wrap">
@@ -425,6 +455,42 @@
         
         
             
+                <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+</style>
+<div class="card valine-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="vcomments" class="card-content" style="display: grid">
+    </div>
+</div>
+
+<script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#vcomments',  
+        appId: 'FCDmyzttKJnX894zw3TSyY2i-gzGzoHsz',
+        appKey: 'hLhU8Y0J5n75jf1avx7bcHh6', 
+        placeholder: 'Just go go' ,
+        notify: 'false',
+        verity: '',
+        path: window.location.pathname,
+        avatar: 'monsterid',
+        meta: ['nick','mail','link'],
+        pageSize: '10',
+        lang: 'zh-cn',
+        visitor: 'false',
+        highlight: ''
+    });
+</script>  
+            
         
     </div>
 </article>
@@ -443,11 +509,17 @@
         
 
 
+    
+        
+    
+
 <div id="about">
     <div id="about-card">
         <div id="about-btn-close">
             <i class="fa fa-times"></i>
         </div>
+        
+            <img id="about-card-picture" src="/shaoshuai.github.io/assets/images/picture.jpg" alt="Author&#39;s picture"/>
         
             <h4 id="about-card-name">Tom Yuan</h4>
         
@@ -462,6 +534,12 @@
 
             </div>
         
+        
+            <div id="about-card-location">
+                <i class="fa fa-map-marker-alt"></i>
+                <br/>
+                TianJin,China
+            </div>
         
     </div>
 </div>
@@ -481,5 +559,20 @@
 
 
 
-    </body>
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
 </html>
