@@ -6,21 +6,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="简单的个人博客">
-    <title>上传测试 - 简单的个人博客</title>
+    <title>关于静态代理和动态代理的使用梳理 - 简单的个人博客</title>
     <meta name="author" content="Tom Yuan">
     
     
     
-    <script type="application/ld+json">{"@context":"http://schema.org","@type":"Website","@id":"https://yuanjie123.github.io/shaoshuai.github.io","author":{"@type":"Person","name":"Tom Yuan","sameAs":["https://github.com/yuanjie123","https://twitter.com/","https://facebook.com/","https://plus.google.com/","https://www.linkedin.com/profile/","mailto"],"image":"/picture.jpg"},"name":"简单的个人博客","description":"一个热爱探索的程序员","url":"https://yuanjie123.github.io/shaoshuai.github.io"}</script>
-    <meta name="description" content="发">
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Tom Yuan","sameAs":["https://github.com/yuanjie123","https://twitter.com/","https://facebook.com/","https://plus.google.com/","https://www.linkedin.com/profile/","mailto"],"image":"/picture.jpg"},"articleBody":"1在上一篇文章中对现有对象动态添加属性使用到了动态代理，在本篇文章中对静态代理和动态代理进行了详细梳理和相关代码展示\n","dateCreated":"2021-03-23T17:22:13+08:00","dateModified":"2021-03-23T17:24:14+08:00","datePublished":"2021-03-23T17:22:13+08:00","description":"1在上一篇文章中对现有对象动态添加属性使用到了动态代理，在本篇文章中对静态代理和动态代理进行了详细梳理和相关代码展示","headline":"关于静态代理和动态代理的使用梳理","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"https://yuanjie123.github.io/shaoshuai.github.io/2021/03/23/%E5%85%B3%E4%BA%8E%E9%9D%99%E6%80%81%E4%BB%A3%E7%90%86%E5%92%8C%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86%E7%9A%84%E4%BD%BF%E7%94%A8%E6%A2%B3%E7%90%86/"},"publisher":{"@type":"Organization","name":"Tom Yuan","sameAs":["https://github.com/yuanjie123","https://twitter.com/","https://facebook.com/","https://plus.google.com/","https://www.linkedin.com/profile/","mailto"],"image":"/picture.jpg","logo":{"@type":"ImageObject","url":"/picture.jpg"}},"url":"https://yuanjie123.github.io/shaoshuai.github.io/2021/03/23/%E5%85%B3%E4%BA%8E%E9%9D%99%E6%80%81%E4%BB%A3%E7%90%86%E5%92%8C%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86%E7%9A%84%E4%BD%BF%E7%94%A8%E6%A2%B3%E7%90%86/"}</script>
+    <meta name="description" content="1在上一篇文章中对现有对象动态添加属性使用到了动态代理，在本篇文章中对静态代理和动态代理进行了详细梳理和相关代码展示">
 <meta property="og:type" content="blog">
-<meta property="og:title" content="上传测试">
-<meta property="og:url" content="https://yuanjie123.github.io/shaoshuai.github.io/%E4%B8%8A%E4%BC%A0%E6%B5%8B%E8%AF%95/index-2.html">
+<meta property="og:title" content="关于静态代理和动态代理的使用梳理">
+<meta property="og:url" content="https://yuanjie123.github.io/shaoshuai.github.io/2021/03/23/%E5%85%B3%E4%BA%8E%E9%9D%99%E6%80%81%E4%BB%A3%E7%90%86%E5%92%8C%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86%E7%9A%84%E4%BD%BF%E7%94%A8%E6%A2%B3%E7%90%86/index.html">
 <meta property="og:site_name" content="简单的个人博客">
-<meta property="og:description" content="发">
+<meta property="og:description" content="1在上一篇文章中对现有对象动态添加属性使用到了动态代理，在本篇文章中对静态代理和动态代理进行了详细梳理和相关代码展示">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-03-02T07:06:15.000Z">
-<meta property="article:modified_time" content="2021-03-02T07:07:15.875Z">
+<meta property="article:published_time" content="2021-03-23T09:22:13.000Z">
+<meta property="article:modified_time" content="2021-03-23T09:24:14.732Z">
 <meta property="article:author" content="Tom Yuan">
 <meta name="twitter:card" content="summary">
     
@@ -58,7 +58,7 @@
         
     
 
-<header id="header" data-behavior="1">
+<header id="header" data-behavior="4">
     <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
     <div class="header-title">
         <a
@@ -91,7 +91,7 @@
         
     
 
-<nav id="sidebar" data-behavior="1">
+<nav id="sidebar" data-behavior="4">
     <div class="sidebar-container">
         
             <div class="sidebar-profile">
@@ -317,7 +317,7 @@
 </nav>
 
             
-            <div id="main" data-behavior="1"
+            <div id="main" data-behavior="4"
                  class="
                         hasCoverMetaIn
                         ">
@@ -328,14 +328,14 @@
         <div class="post-header main-content-wrap text-left">
     
         <h1 class="post-title">
-            上传测试
+            关于静态代理和动态代理的使用梳理
         </h1>
     
     
         <div class="post-meta">
-    <time datetime="2021-03-02T15:06:15+08:00">
+    <time datetime="2021-03-23T17:22:13+08:00">
 	
-		    Mar 02, 2021
+		    Mar 23, 2021
     	
     </time>
     
@@ -347,8 +347,8 @@
     
     <div class="post-content markdown">
         <div class="main-content-wrap">
-            <p>发</p>
-
+            <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">在上一篇文章中对现有对象动态添加属性使用到了动态代理，在本篇文章中对静态代理和动态代理进行了详细梳理和相关代码展示</span><br></pre></td></tr></table></figure>
+<span id="more"></span>
             
 
 
@@ -377,11 +377,14 @@
             </li>
             <li class="post-action">
                 
-                    <a
-                        class="post-action-btn btn btn--disabled"
-                        aria-hidden="true"
-                    >
-                        
+                    
+                <a
+                    class="post-action-btn btn btn--default tooltip--top"
+                    href="/shaoshuai.github.io/2021/03/11/%E8%AE%B0Java%E7%B1%BB%E5%8A%A8%E6%80%81%E6%B7%BB%E5%8A%A0%E5%B1%9E%E6%80%A7%E5%AD%97%E6%AE%B5%E7%9A%84%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F/"
+                    data-tooltip="记Java类动态添加属性字段的实现方式"
+                    aria-label="NEXT: 记Java类动态添加属性字段的实现方式"
+                >
+                    
                         <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
                         <i class="fa fa-angle-right" aria-hidden="true"></i>
                     </a>
@@ -404,7 +407,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://yuanjie123.github.io/shaoshuai.github.io/%E4%B8%8A%E4%BC%A0%E6%B5%8B%E8%AF%95/index-2.html"
+                    target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://yuanjie123.github.io/shaoshuai.github.io/2021/03/23/%E5%85%B3%E4%BA%8E%E9%9D%99%E6%80%81%E4%BB%A3%E7%90%86%E5%92%8C%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86%E7%9A%84%E4%BD%BF%E7%94%A8%E6%A2%B3%E7%90%86/"
                     title="Share on Facebook"
                     aria-label="Share on Facebook"
                 >
@@ -417,7 +420,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="https://twitter.com/intent/tweet?text=https://yuanjie123.github.io/shaoshuai.github.io/%E4%B8%8A%E4%BC%A0%E6%B5%8B%E8%AF%95/index-2.html"
+                    target="new" href="https://twitter.com/intent/tweet?text=https://yuanjie123.github.io/shaoshuai.github.io/2021/03/23/%E5%85%B3%E4%BA%8E%E9%9D%99%E6%80%81%E4%BB%A3%E7%90%86%E5%92%8C%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86%E7%9A%84%E4%BD%BF%E7%94%A8%E6%A2%B3%E7%90%86/"
                     title="Share on Twitter"
                     aria-label="Share on Twitter"
                 >
@@ -430,7 +433,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="https://plus.google.com/share?url=https://yuanjie123.github.io/shaoshuai.github.io/%E4%B8%8A%E4%BC%A0%E6%B5%8B%E8%AF%95/index-2.html"
+                    target="new" href="https://plus.google.com/share?url=https://yuanjie123.github.io/shaoshuai.github.io/2021/03/23/%E5%85%B3%E4%BA%8E%E9%9D%99%E6%80%81%E4%BB%A3%E7%90%86%E5%92%8C%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86%E7%9A%84%E4%BD%BF%E7%94%A8%E6%A2%B3%E7%90%86/"
                     title="Share on Google+"
                     aria-label="Share on Google+"
                 >
@@ -504,6 +507,151 @@
 </footer>
 
             </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a
+                        class="post-action-btn btn btn--disabled"
+                        aria-hidden="true"
+                    >
+                        
+                        <i class="fa fa-angle-left" aria-hidden="true"></i>
+                        <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                    </a>
+            </li>
+            <li class="post-action">
+                
+                    
+                <a
+                    class="post-action-btn btn btn--default tooltip--top"
+                    href="/shaoshuai.github.io/2021/03/11/%E8%AE%B0Java%E7%B1%BB%E5%8A%A8%E6%80%81%E6%B7%BB%E5%8A%A0%E5%B1%9E%E6%80%A7%E5%AD%97%E6%AE%B5%E7%9A%84%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F/"
+                    data-tooltip="记Java类动态添加属性字段的实现方式"
+                    aria-label="NEXT: 记Java类动态添加属性字段的实现方式"
+                >
+                    
+                        <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                        <i class="fa fa-angle-right" aria-hidden="true"></i>
+                    </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a
+                class="post-action-btn btn btn--default btn-open-shareoptions"
+                href="#btn-open-shareoptions"
+                aria-label="Share this post"
+            >
+                <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </a>
+        </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a
+                    class="post-action-btn btn btn--default"
+                    target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://yuanjie123.github.io/shaoshuai.github.io/2021/03/23/%E5%85%B3%E4%BA%8E%E9%9D%99%E6%80%81%E4%BB%A3%E7%90%86%E5%92%8C%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86%E7%9A%84%E4%BD%BF%E7%94%A8%E6%A2%B3%E7%90%86/"
+                    title="Share on Facebook"
+                    aria-label="Share on Facebook"
+                >
+                    <i class="fab fa-facebook" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a
+                    class="post-action-btn btn btn--default"
+                    target="new" href="https://twitter.com/intent/tweet?text=https://yuanjie123.github.io/shaoshuai.github.io/2021/03/23/%E5%85%B3%E4%BA%8E%E9%9D%99%E6%80%81%E4%BB%A3%E7%90%86%E5%92%8C%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86%E7%9A%84%E4%BD%BF%E7%94%A8%E6%A2%B3%E7%90%86/"
+                    title="Share on Twitter"
+                    aria-label="Share on Twitter"
+                >
+                    <i class="fab fa-twitter" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a
+                    class="post-action-btn btn btn--default"
+                    target="new" href="https://plus.google.com/share?url=https://yuanjie123.github.io/shaoshuai.github.io/2021/03/23/%E5%85%B3%E4%BA%8E%E9%9D%99%E6%80%81%E4%BB%A3%E7%90%86%E5%92%8C%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86%E7%9A%84%E4%BD%BF%E7%94%A8%E6%A2%B3%E7%90%86/"
+                    title="Share on Google+"
+                    aria-label="Share on Google+"
+                >
+                    <i class="fab fa-google-plus" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+        
+            
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#" aria-label="Back to top">
+            
+                <i class="fa fa-list" aria-hidden="true"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+                </div>
+                
+    <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+        <i id="btn-close-shareoptions" class="fa fa-times"></i>
+        <ul class="share-options">
+            
+                
+                
+                <li class="share-option">
+                    <a
+                        class="share-option-btn"
+                        target="new"
+                        href="https://www.facebook.com/sharer/sharer.php?u=https://yuanjie123.github.io/shaoshuai.github.io/2021/03/23/%E5%85%B3%E4%BA%8E%E9%9D%99%E6%80%81%E4%BB%A3%E7%90%86%E5%92%8C%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86%E7%9A%84%E4%BD%BF%E7%94%A8%E6%A2%B3%E7%90%86/"
+                        aria-label="Share on Facebook"
+                    >
+                        <i class="fab fa-facebook" aria-hidden="true"></i><span>Share on Facebook</span>
+                    </a>
+                </li>
+            
+                
+                
+                <li class="share-option">
+                    <a
+                        class="share-option-btn"
+                        target="new"
+                        href="https://twitter.com/intent/tweet?text=https://yuanjie123.github.io/shaoshuai.github.io/2021/03/23/%E5%85%B3%E4%BA%8E%E9%9D%99%E6%80%81%E4%BB%A3%E7%90%86%E5%92%8C%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86%E7%9A%84%E4%BD%BF%E7%94%A8%E6%A2%B3%E7%90%86/"
+                        aria-label="Share on Twitter"
+                    >
+                        <i class="fab fa-twitter" aria-hidden="true"></i><span>Share on Twitter</span>
+                    </a>
+                </li>
+            
+                
+                
+                <li class="share-option">
+                    <a
+                        class="share-option-btn"
+                        target="new"
+                        href="https://plus.google.com/share?url=https://yuanjie123.github.io/shaoshuai.github.io/2021/03/23/%E5%85%B3%E4%BA%8E%E9%9D%99%E6%80%81%E4%BB%A3%E7%90%86%E5%92%8C%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86%E7%9A%84%E4%BD%BF%E7%94%A8%E6%A2%B3%E7%90%86/"
+                        aria-label="Share on Google+"
+                    >
+                        <i class="fab fa-google-plus" aria-hidden="true"></i><span>Share on Google+</span>
+                    </a>
+                </li>
+            
+        </ul>
+    </div>
+
+
             
         </div>
         
