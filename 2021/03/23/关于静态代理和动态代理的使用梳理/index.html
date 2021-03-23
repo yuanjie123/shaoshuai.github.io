@@ -11,16 +11,16 @@
     
     
     
-    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Tom Yuan","sameAs":["https://github.com/yuanjie123","https://twitter.com/","https://facebook.com/","https://plus.google.com/","https://www.linkedin.com/profile/","mailto"],"image":"/picture.jpg"},"articleBody":"1在上一篇文章中对现有对象动态添加属性使用到了动态代理，在本篇文章中对静态代理和动态代理进行了详细梳理和相关代码展示\n","dateCreated":"2021-03-23T17:22:13+08:00","dateModified":"2021-03-23T17:24:14+08:00","datePublished":"2021-03-23T17:22:13+08:00","description":"1在上一篇文章中对现有对象动态添加属性使用到了动态代理，在本篇文章中对静态代理和动态代理进行了详细梳理和相关代码展示","headline":"关于静态代理和动态代理的使用梳理","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"https://yuanjie123.github.io/shaoshuai.github.io/2021/03/23/%E5%85%B3%E4%BA%8E%E9%9D%99%E6%80%81%E4%BB%A3%E7%90%86%E5%92%8C%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86%E7%9A%84%E4%BD%BF%E7%94%A8%E6%A2%B3%E7%90%86/"},"publisher":{"@type":"Organization","name":"Tom Yuan","sameAs":["https://github.com/yuanjie123","https://twitter.com/","https://facebook.com/","https://plus.google.com/","https://www.linkedin.com/profile/","mailto"],"image":"/picture.jpg","logo":{"@type":"ImageObject","url":"/picture.jpg"}},"url":"https://yuanjie123.github.io/shaoshuai.github.io/2021/03/23/%E5%85%B3%E4%BA%8E%E9%9D%99%E6%80%81%E4%BB%A3%E7%90%86%E5%92%8C%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86%E7%9A%84%E4%BD%BF%E7%94%A8%E6%A2%B3%E7%90%86/"}</script>
-    <meta name="description" content="1在上一篇文章中对现有对象动态添加属性使用到了动态代理，在本篇文章中对静态代理和动态代理进行了详细梳理和相关代码展示">
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Tom Yuan","sameAs":["https://github.com/yuanjie123","https://twitter.com/","https://facebook.com/","https://plus.google.com/","https://www.linkedin.com/profile/","mailto"],"image":"/picture.jpg"},"articleBody":"12在上一篇文章中对现有对象动态添加属性使用到了动态代理。  在本篇文章中对静态代理和动态代理进行了详细梳理和相关代码展示\n","dateCreated":"2021-03-23T17:22:13+08:00","dateModified":"2021-03-23T17:33:00+08:00","datePublished":"2021-03-23T17:22:13+08:00","description":"12在上一篇文章中对现有对象动态添加属性使用到了动态代理。  在本篇文章中对静态代理和动态代理进行了详细梳理和相关代码展示","headline":"关于静态代理和动态代理的使用梳理","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"https://yuanjie123.github.io/shaoshuai.github.io/2021/03/23/%E5%85%B3%E4%BA%8E%E9%9D%99%E6%80%81%E4%BB%A3%E7%90%86%E5%92%8C%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86%E7%9A%84%E4%BD%BF%E7%94%A8%E6%A2%B3%E7%90%86/"},"publisher":{"@type":"Organization","name":"Tom Yuan","sameAs":["https://github.com/yuanjie123","https://twitter.com/","https://facebook.com/","https://plus.google.com/","https://www.linkedin.com/profile/","mailto"],"image":"/picture.jpg","logo":{"@type":"ImageObject","url":"/picture.jpg"}},"url":"https://yuanjie123.github.io/shaoshuai.github.io/2021/03/23/%E5%85%B3%E4%BA%8E%E9%9D%99%E6%80%81%E4%BB%A3%E7%90%86%E5%92%8C%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86%E7%9A%84%E4%BD%BF%E7%94%A8%E6%A2%B3%E7%90%86/"}</script>
+    <meta name="description" content="12在上一篇文章中对现有对象动态添加属性使用到了动态代理。  在本篇文章中对静态代理和动态代理进行了详细梳理和相关代码展示">
 <meta property="og:type" content="blog">
 <meta property="og:title" content="关于静态代理和动态代理的使用梳理">
 <meta property="og:url" content="https://yuanjie123.github.io/shaoshuai.github.io/2021/03/23/%E5%85%B3%E4%BA%8E%E9%9D%99%E6%80%81%E4%BB%A3%E7%90%86%E5%92%8C%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86%E7%9A%84%E4%BD%BF%E7%94%A8%E6%A2%B3%E7%90%86/index.html">
 <meta property="og:site_name" content="简单的个人博客">
-<meta property="og:description" content="1在上一篇文章中对现有对象动态添加属性使用到了动态代理，在本篇文章中对静态代理和动态代理进行了详细梳理和相关代码展示">
+<meta property="og:description" content="12在上一篇文章中对现有对象动态添加属性使用到了动态代理。  在本篇文章中对静态代理和动态代理进行了详细梳理和相关代码展示">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-03-23T09:22:13.000Z">
-<meta property="article:modified_time" content="2021-03-23T09:24:14.732Z">
+<meta property="article:modified_time" content="2021-03-23T09:33:00.245Z">
 <meta property="article:author" content="Tom Yuan">
 <meta name="twitter:card" content="summary">
     
@@ -347,7 +347,7 @@
     
     <div class="post-content markdown">
         <div class="main-content-wrap">
-            <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">在上一篇文章中对现有对象动态添加属性使用到了动态代理，在本篇文章中对静态代理和动态代理进行了详细梳理和相关代码展示</span><br></pre></td></tr></table></figure>
+            <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">在上一篇文章中对现有对象动态添加属性使用到了动态代理。  </span><br><span class="line">在本篇文章中对静态代理和动态代理进行了详细梳理和相关代码展示</span><br></pre></td></tr></table></figure>
 <span id="more"></span>
             
 
